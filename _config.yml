@@ -1,0 +1,6 @@
+source: docs
+destination: docs/_site
+
+sass:
+  style: compressed
+  load_paths: ["assets/css"]
