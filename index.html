@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ensures responsive design -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Base Apparel Coming Soon Page</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: hsl(0, 0%, 95%);
+      text-align: center;
+      background-image: url('./images/bg-pattern-desktop.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 20px 0;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: hsl(228, 45%, 44%);
+      margin-bottom: 20px;
+    }
+
+    .email-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .email-form input {
+      padding: 10px;
+      margin-right: 10px;
+      border: 1px solid hsl(0, 0%, 80%);
+      border-radius: 5px;
+      font-size: 1rem;
+      width: 250px;
+    }
+
+    .email-form button {
+      padding: 10px 20px;
+      background-color: hsl(228, 45%, 44%);
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .email-form button:hover {
+      background-color: hsl(228, 45%, 60%);
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    footer {
+      margin-top: 20px;
+    }
+
+    .attribution {
+      font-size: 11px;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    /* Mobile responsive styles */
+    @media (max-width: 600px) {
+      body {
+        background-image: url('./images/hero-mobile.jpg');
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .email-form input {
+        width: 200px;
+      }
+    }
+
+    /* Desktop styles */
+    @media (min-width: 601px) {
+      body {
+        background-image: url('./images/hero-desktop.jpg');
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>We're Coming Soon!</h1>
+  <p>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
+
+  <form class="email-form" id="email-form">
+    <input type="email" id="email" placeholder="Email Address" required>
+    <button type="submit">Subscribe</button>
+  </form>
+
+  <p id="error-message" class="error"></p>
+
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Your Name Here</a>.
+    </p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('email-form');
+    const emailInput = document.getElementById('email');
+    const errorMessage = document.getElementById('error-message');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Reset error message
+      errorMessage.textContent = '';
+
+      // Email validation
+      const emailValue = emailInput.value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailValue) {
+        errorMessage.textContent = 'Please enter an email address.';
+      } else if (!emailRegex.test(emailValue)) {
+        errorMessage.textContent = 'Please enter a valid email address.';
+      } else {
+        alert('Thank you for subscribing!');
+      }
+    });
+  </script>
+
+</body>
+</html>
