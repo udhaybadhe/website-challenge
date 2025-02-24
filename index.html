@@ -1,168 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ensures responsive design -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png"> <!-- Favicon -->
-  
-  <title>Frontend Mentor | Base Apparel Coming Soon Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base Apparel</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background-color: hsl(0, 0%, 95%);
-      text-align: center;
-      background-image: url('/images/bg-pattern-desktop.svg');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
+        /* Header Styles */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
 
-    header {
-      margin-bottom: 20px;
-    }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
 
-    h1 {
-      font-size: 2rem;
-      margin: 20px 0;
-    }
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
 
-    p {
-      font-size: 1.2rem;
-      color: hsl(228, 45%, 44%);
-      margin-bottom: 20px;
-    }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 0 10px;
+            font-size: 1.2rem;
+        }
 
-    .email-form {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+        nav a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
 
-    .email-form input {
-      padding: 10px;
-      margin-right: 10px;
-      border: 1px solid hsl(0, 0%, 80%);
-      border-radius: 5px;
-      font-size: 1rem;
-      width: 250px;
-    }
+        /* Main Section */
+        .hero {
+            background-image: url('https://via.placeholder.com/1920x600/ccc/000000');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
 
-    .email-form button {
-      padding: 10px 20px;
-      background-color: hsl(228, 45%, 44%);
-      border: none;
-      border-radius: 5px;
-      color: white;
-      cursor: pointer;
-      font-size: 1rem;
-    }
+        .hero h2 {
+            font-size: 3rem;
+        }
 
-    .email-form button:hover {
-      background-color: hsl(228, 45%, 60%);
-    }
+        .hero p {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
 
-    .error {
-      color: red;
-      font-size: 0.9rem;
-      margin-top: 10px;
-    }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
 
-    footer {
-      margin-top: 20px;
-    }
+        .product {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
 
-    .attribution {
-      font-size: 11px;
-    }
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
 
-    .attribution a {
-      color: hsl(228, 45%, 44%);
-    }
+        .product-info {
+            padding: 15px;
+            text-align: center;
+        }
 
-    /* Mobile responsive styles */
-    @media (max-width: 600px) {
-      body {
-        background-image: url('/images/hero-mobile.jpg');
-      }
+        .product-info h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
 
-      h1 {
-        font-size: 1.5rem;
-      }
+        .product-info p {
+            font-size: 1.2rem;
+            color: #777;
+        }
 
-      p {
-        font-size: 1rem;
-      }
+        .product-info .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
 
-      .email-form input {
-        width: 200px;
-      }
-    }
+        .product:hover {
+            transform: scale(1.05);
+        }
 
-    /* Desktop styles */
-    @media (min-width: 601px) {
-      body {
-        background-image: url('/images/hero-desktop.jpg');
-      }
-    }
-  </style>
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .products {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-  <header>
-    <img src="/images/logo.svg" alt="Base Apparel Logo" width="150px"> <!-- Logo -->
-  </header>
+    <!-- Header Section -->
+    <header>
+        <h1>Base Apparel</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">Contact</a>
+            <a href="#">About</a>
+        </nav>
+    </header>
 
-  <main>
-    <h1>We're Coming Soon!</h1>
-    <p>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Welcome to Base Apparel</h2>
+        <p>Your go-to place for the best fashion trends.</p>
+    </section>
 
-    <form class="email-form" id="email-form">
-      <input type="email" id="email" placeholder="Email Address" required>
-      <button type="submit">Subscribe</button>
-    </form>
+    <!-- Products Section -->
+    <section class="products">
+        <div class="product">
+            <img src="https://via.placeholder.com/300x200" alt="Product 1">
+            <div class="product-info">
+                <h3>Product 1</h3>
+                <p>Stylish and comfortable apparel.</p>
+                <div class="price">$29.99</div>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/300x200" alt="Product 2">
+            <div class="product-info">
+                <h3>Product 2</h3>
+                <p>High-quality materials for every occasion.</p>
+                <div class="price">$49.99</div>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/300x200" alt="Product 3">
+            <div class="product-info">
+                <h3>Product 3</h3>
+                <p>Trendy, durable, and affordable.</p>
+                <div class="price">$39.99</div>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/300x200" alt="Product 4">
+            <div class="product-info">
+                <h3>Product 4</h3>
+                <p>Fashionable pieces for any season.</p>
+                <div class="price">$59.99</div>
+            </div>
+        </div>
+    </section>
 
-    <p id="error-message" class="error"></p>
-  </main>
-
-  <footer>
-    <p class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="#">Your Name Here</a>.
-    </p>
-  </footer>
-
-  <script>
-    const form = document.getElementById('email-form');
-    const emailInput = document.getElementById('email');
-    const errorMessage = document.getElementById('error-message');
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      // Reset error message
-      errorMessage.textContent = '';
-
-      // Email validation
-      const emailValue = emailInput.value.trim();
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      if (!emailValue) {
-        errorMessage.textContent = 'Please enter an email address.';
-      } else if (!emailRegex.test(emailValue)) {
-        errorMessage.textContent = 'Please enter a valid email address.';
-      } else {
-        alert('Thank you for subscribing!');
-      }
-    });
-  </script>
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Base Apparel. All rights reserved.</p>
+    </footer>
 
 </body>
+
 </html>
