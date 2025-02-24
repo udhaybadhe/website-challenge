@@ -25,6 +25,10 @@
       background-size: cover;
     }
 
+    header {
+      margin-bottom: 20px;
+    }
+
     h1 {
       font-size: 2rem;
       margin: 20px 0;
@@ -112,17 +116,21 @@
 </head>
 <body>
 
-  <img src="./images/logo.svg" alt="Base Apparel Logo" width="150px"> <!-- Logo -->
+  <header>
+    <img src="./images/logo.svg" alt="Base Apparel Logo" width="150px"> <!-- Logo -->
+  </header>
 
-  <h1>We're Coming Soon!</h1>
-  <p>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
+  <main>
+    <h1>We're Coming Soon!</h1>
+    <p>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
 
-  <form class="email-form" id="email-form">
-    <input type="email" id="email" placeholder="Email Address" required>
-    <button type="submit">Subscribe</button>
-  </form>
+    <form class="email-form" id="email-form">
+      <input type="email" id="email" placeholder="Email Address" required>
+      <button type="submit">Subscribe</button>
+    </form>
 
-  <p id="error-message" class="error"></p>
+    <p id="error-message" class="error"></p>
+  </main>
 
   <footer>
     <p class="attribution">
